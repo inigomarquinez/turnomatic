@@ -36,7 +36,7 @@ app.get('/turno/:id', async (req, res) => {
     )
   } catch (error) {
     console.log('error :>> ', error);
-    res.send(error)
+    res.status(500).send(error)
   }
 })
 
