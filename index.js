@@ -13,11 +13,10 @@ const redis = await createClient({
 
 // await client.disconnect();
 
-const getNextTurn = async () => {
-  // https://thisdavej.com/guides/redis-node/node/counters.html
-  const key = 'turnomatic';
+// https://thisdavej.com/guides/redis-node/node/counters.html
+const getNextTurn = async (groupId) => {
   try {
-    return await redis.incr(key);
+    return await redis.incr(groupId);
   } catch (error) {
     console.error(error);
     throw error;
@@ -26,12 +25,12 @@ const getNextTurn = async () => {
 
 app.get('/turno/:id', async (req, res) => {
   try {
-  res.send(
-    {
-      id: req.params.id,
-      turno: getNextTurn()
-    }
-  )
+    res.send(
+      {
+        id: req.params.id,
+        turno: await getNextTurn(req.params.id)
+      }
+    )
   } catch (error) {
     res.send(error)
   }
