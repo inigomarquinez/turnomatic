@@ -3,6 +3,7 @@
   "scripts": {
     "start": "nodemon .",
     "start-mem": "nodemon mem-counter.js",
+    "start-cluster": "nodemon cluster-counter.js",
     "prod": "node .",
     "prod-1": "PORT=7017 node .",
     "prod-2": "PORT=7018 node .",
