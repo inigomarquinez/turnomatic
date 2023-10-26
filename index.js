@@ -1,6 +1,18 @@
-const express = require('express')
+import express from 'express';
+import { createClient } from 'redis';
+import 'dotenv/config'
+
+const port = process.env.PORT
 const app = express()
-const port = 7017
+
+// const client = await createClient()
+//   .on('error', err => console.log('Redis Client Error', err))
+//   .connect();
+
+// await client.set('key', 'value');
+// const value = await client.get('key');
+// await client.disconnect();
+
 
 app.get('/turno/:id', (req, res) => {
   res.send(
