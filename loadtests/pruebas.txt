@@ -169,3 +169,34 @@ Percentage of requests served within a certain time
   99%      306 ms
  100%      346 ms (longest request)
 
+---------------------------
+
+loadtest --rps 2000 http://18.101.58.79:7017/turno/pinchito
+Requests: 169, requests per second: 34, mean latency: 655.9 ms
+Requests: 164, requests per second: 33, mean latency: 588.8 ms
+Requests: 161, requests per second: 32, mean latency: 639.2 ms
+Requests: 164, requests per second: 33, mean latency: 638.4 ms
+Requests: 998, requests per second: 166, mean latency: 119.2 ms
+Errors: 811, accumulated errors: 811, 81.3% of total requests
+
+Target URL:          http://18.101.58.79:7017/turno/pinchito
+Max time (s):        10
+Target rps:          2000
+Concurrent clients:  16056
+Running on cores:    4
+Agent:               none
+
+Completed requests:  3974
+Total errors:        3238
+Total time:          10.008 s
+Mean latency:        222.6 ms
+Effective rps:       397
+
+Percentage of requests served within a certain time
+  50%      1 ms
+  90%      592 ms
+  95%      724 ms
+  99%      5747 ms
+ 100%      8911 ms (longest request)
+
+   -1:   3238 errors

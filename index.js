@@ -22,6 +22,10 @@ const getNextTurn = async (groupId) => {
   }
 }
 
+app.get('/', async (req, res) => {
+  res.send('Welcome to turnomatic!');
+})
+
 app.get('/turno/:id', async (req, res) => {
   try {
     res.send(
