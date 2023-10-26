@@ -5,9 +5,11 @@ import 'dotenv/config'
 const port = process.env.PORT
 const app = express()
 
-// const client = await createClient()
-//   .on('error', err => console.log('Redis Client Error', err))
-//   .connect();
+const client = await createClient({
+  url: `redis://${process.env.REDIS_USER}:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOST}:${process.env.REDIS_PORT}/0`
+})
+  .on('error', err => console.log('Redis Client Error', err))
+  .connect();
 
 // await client.set('key', 'value');
 // const value = await client.get('key');
