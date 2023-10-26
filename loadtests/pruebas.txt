@@ -1,0 +1,171 @@
+> loadtest --rps 1000 http://localhost:7017/turno/c2i
+
+Requests: 1250, requests per second: 250, mean latency: 1.3 ms
+Requests: 1250, requests per second: 250, mean latency: 1.3 ms
+Requests: 1250, requests per second: 250, mean latency: 1.3 ms
+Requests: 1250, requests per second: 250, mean latency: 1.3 ms
+
+Target URL:          http://localhost:7017/turno/c2i
+Max time (s):        10
+Target rps:          1000
+Concurrent clients:  18
+Running on cores:    4
+Agent:               none
+
+Completed requests:  10000
+Total errors:        0
+Total time:          10.019 s
+Mean latency:        1.3 ms
+Effective rps:       998
+
+Percentage of requests served within a certain time
+  50%      1 ms
+  90%      2 ms
+  95%      2 ms
+  99%      4 ms
+ 100%      20 ms (longest request)
+
+---------- Requests ----------
+
+> loadtest --rps 100000 http://localhost:7017
+
+Requests: 3732, requests per second: 747, mean latency: 504.3 ms
+Errors: 3732, accumulated errors: 3732, 100% of total requests
+Requests: 3409, requests per second: 682, mean latency: 561 ms
+Errors: 3409, accumulated errors: 3409, 100% of total requests
+Requests: 3319, requests per second: 664, mean latency: 473.9 ms
+Errors: 3319, accumulated errors: 3319, 100% of total requests
+Requests: 3261, requests per second: 644, mean latency: 726.6 ms
+Errors: 3261, accumulated errors: 3261, 100% of total requests
+
+--------------------------------------------
+
+> loadtest --rps 2000 http://localhost:7017/turno/c2i
+
+Requests: 572, requests per second: 40, mean latency: 132.2 ms
+Requests: 552, requests per second: 39, mean latency: 134.5 ms
+Requests: 552, requests per second: 39, mean latency: 123.5 ms
+Requests: 568, requests per second: 40, mean latency: 130.6 ms
+
+Target URL:          http://localhost:7017/turno/c2i
+Max time (s):        10
+Target rps:          2000
+Concurrent clients:  2383
+Running on cores:    4
+Agent:               none
+
+Completed requests:  2244
+Total errors:        0
+Total time:          14.275 s
+Mean latency:        130.2 ms
+Effective rps:       157
+
+Percentage of requests served within a certain time
+  50%      28 ms
+  90%      277 ms
+  95%      343 ms
+  99%      498 ms
+ 100%      537 ms (longest request)
+
+
+ CON 2000 rps funciona
+ - Para 100K => 50 servidores
+ - Para 200K => 100 servidores
+
+SI ESCALAMOS EN HORIZONTAL, tenemos más margen
+
+ - 16 cores =>
+
+
+
+--- MemCounter
+
+> loadtest --rps 2000 http://localhost:7017/turno/c2i
+
+Requests: 2499, requests per second: 500, mean latency: 2.1 ms
+Requests: 2500, requests per second: 500, mean latency: 2.2 ms
+Requests: 2500, requests per second: 500, mean latency: 2.2 ms
+Requests: 2501, requests per second: 500, mean latency: 2.2 ms
+
+Target URL:          http://localhost:7017/turno/c2i
+Max time (s):        10
+Target rps:          2000
+Concurrent clients:  591
+Running on cores:    4
+Agent:               none
+
+Completed requests:  19548
+Total errors:        27
+Total time:          10.007 s
+Mean latency:        32.9 ms
+Effective rps:       1953
+
+Percentage of requests served within a certain time
+  50%      1 ms
+  90%      251 ms
+  95%      255 ms
+  99%      295 ms
+ 100%      378 ms (longest request)
+
+   -1:   27 errors
+
+
+-------- todo redis nube
+
+> loadtest --rps 2000 http://localhost:7017/turno/c2i
+
+Requests: 2463, requests per second: 493, mean latency: 58.6 ms
+Requests: 2466, requests per second: 493, mean latency: 58.7 ms
+Requests: 2469, requests per second: 494, mean latency: 58.9 ms
+Requests: 2468, requests per second: 494, mean latency: 58.8 ms
+
+Target URL:          http://localhost:7017/turno/c2i
+Max time (s):        10
+Target rps:          2000
+Concurrent clients:  2378
+Running on cores:    4
+Agent:               none
+
+Completed requests:  17529
+Total errors:        190
+Total time:          10.011 s
+Mean latency:        70.6 ms
+Effective rps:       1751
+
+Percentage of requests served within a certain time
+  50%      57 ms
+  90%      80 ms
+  95%      109 ms
+  99%      375 ms
+ 100%      1093 ms (longest request)
+
+
+------ todo redis nube
+
+> loadtest --rps 1750 http://localhost:7017/turno/c2i
+
+Requests: 2168, requests per second: 434, mean latency: 56.6 ms
+Requests: 2157, requests per second: 431, mean latency: 56.6 ms
+Requests: 2170, requests per second: 434, mean latency: 56.7 ms
+Requests: 2173, requests per second: 435, mean latency: 56.7 ms
+
+Target URL:          http://localhost:7017/turno/c2i
+Max time (s):        10
+Target rps:          1750
+Concurrent clients:  464
+Running on cores:    4
+Agent:               none
+
+Completed requests:  17070
+Total errors:        0
+Total time:          10.011 s
+Mean latency:        62.3 ms
+Effective rps:       1705
+
+Percentage of requests served within a certain time
+  50%      55 ms
+  90%      72 ms
+  95%      80 ms
+  99%      306 ms
+ 100%      346 ms (longest request)
+

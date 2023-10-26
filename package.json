@@ -2,15 +2,27 @@
   "type": "module",
   "scripts": {
     "start": "nodemon .",
-    "infra:up": "docker-compose up -d"
+    "start-mem": "nodemon mem-counter.js",
+    "prod": "node .",
+    "prod-1": "PORT=7017 node .",
+    "prod-2": "PORT=7018 node .",
+    "infra:up": "docker-compose up -d",
+    "loadtest": "loadtest --rps 1750 http://localhost:7017/turno/c2i",
+    "loadtest-all": "node_modules/.bin/run-p loadtest-1 loadtest-2",
+    "loadtest-1": "loadtest --rps 1750 http://localhost:7017/turno/c2i",
+    "loadtest-2": "loadtest --rps 1750 http://localhost:7018/turno/c2i"
   },
   "dependencies": {
     "@redis/client": "^1.5.11",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "redis": "^4.6.10"
+    "node-statsd": "^0.1.1",
+    "redis": "^4.6.10",
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
+    "run-parallel": "^1.2.0"
   }
 }

@@ -13,7 +13,6 @@ const redis = await createClient({
 
 // await client.disconnect();
 
-// https://thisdavej.com/guides/redis-node/node/counters.html
 const getNextTurn = async (groupId) => {
   try {
     return await redis.incr(groupId);
@@ -32,6 +31,7 @@ app.get('/turno/:id', async (req, res) => {
       }
     )
   } catch (error) {
+    console.log('error :>> ', error);
     res.send(error)
   }
 })
